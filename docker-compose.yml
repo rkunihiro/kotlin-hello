@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  kotlin:
+    container_name: kotlin-hello-kotlin
+    build:
+      context: .
+      dockerfile: ./docker/kotlin/Dockerfile
+    image: rkunihiro/kotlin
+    networks:
+      - default
+    volumes:
+      - '.:/app'
+    working_dir: /app
+    command: ash
+    tty: true
+
+networks:
+  default:
+    name: kotlin-hello-default
